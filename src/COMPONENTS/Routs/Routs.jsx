@@ -10,6 +10,7 @@ import AddAssignment from "../Pages/AddAssignments/Addassignment";
 import AllAssignment from "../Pages/assignments/AllAssignment";
 import Details from "../Pages/assignments/Details";
 import Updateassign from "../Pages/Updateassign";
+import Privaterout from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/add',
-        element:<AddAssignment></AddAssignment>
+        element:<Privaterout><AddAssignment></AddAssignment></Privaterout>
       },
       {
         path:'/update/:_id',
