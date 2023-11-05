@@ -2,12 +2,24 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Navbar from '../../Layouts/Navbar/Navbar';
 import { AuthContext } from '../../Providers/AuthiProvider';
+import Swal from 'sweetalert2';
 
 const Details = () => {
   const loaderdata=useLoaderData()
-  const {user}=useContext(AuthContext)
-  const {name,number,type,email,dueDate,description,_id,photo}=loaderdata
+  // const {user}=useContext(AuthContext)
+
+
+
+  const {name,number,type,email,dueDate,description,photo}=loaderdata
   console.log(loaderdata.type);
+
+
+
+
+
+
+
+
   return (
     <div>
       <Navbar></Navbar>
@@ -15,7 +27,7 @@ const Details = () => {
 
       <div className="relative flex max-w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
   <div className="relative m-0 overflow-hidden grid align-middle items-center
-  justify-center w-screen
+  justify-center 
    text-gray-700 bg-transparent rounded-none 
    shadow-none bg-clip-border">
     <img
@@ -40,7 +52,10 @@ const Details = () => {
     </div>
   </div>
   <div className='flex justify-between align-middle items-center m-10'>
-    <button>delete</button>
+   <div className='flex gap-2 '>
+   {/* <button onClick={()=>{}} ><a href="/editassignment">Edit</a></button> */}
+    <button>update assignment </button>
+   </div>
     <button>take assignment</button>
   </div>
   
