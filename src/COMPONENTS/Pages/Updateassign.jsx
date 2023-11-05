@@ -1,7 +1,12 @@
 import React from 'react';
 import Navbar from '../Layouts/Navbar/Navbar';
+import { useLoaderData } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Updateassign = () => {
+  const loaderdata=useLoaderData()
+  const { name, number, type, email, dueDate, description, photo,_id } = loaderdata;
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,6 +27,20 @@ const Updateassign = () => {
       photo,
 
     };
+    axios.put(`http://localhost:5000/assignments/${_id}`,mydata)
+    .then(res=>{console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+            title: 'Success!',
+            text: 'assignment Updated Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+        })
+      }
+    
+    
+    
+    })
     console.log(mydata);
   }
   return (
@@ -30,7 +49,7 @@ const Updateassign = () => {
   <div className='grid justify-center items-center '>
   <div>
     <h2 className='text-2xl font-bold text-center m-4 text-purple-800'>
-      Add assignment
+      Update assignment
     </h2>
   </div>
   <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
@@ -39,6 +58,7 @@ const Updateassign = () => {
       <input
         type="photo"
         name="photo"
+        defaultValue={photo}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       />
     </div>
@@ -47,6 +67,7 @@ const Updateassign = () => {
       <input
         type="text"
         name="name"
+        defaultValue={name}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       />
     </div>
@@ -55,6 +76,7 @@ const Updateassign = () => {
       <input
         type="number"
         name="number"
+        defaultValue={number}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       />
     </div>
@@ -62,6 +84,7 @@ const Updateassign = () => {
       <label className="block text-sm font-medium text-purple-700">Difficulty level</label>
       <select
         name="type"
+        defaultValue={type}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       >
         <option value="easy">easy</option>
@@ -75,6 +98,7 @@ const Updateassign = () => {
       <input
         type="date"
         name="dueDate"
+        defaultValue={dueDate}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       />
     </div>
@@ -83,6 +107,7 @@ const Updateassign = () => {
       <input
         type="email"
         name="email"
+        defaultValue={email}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       />
     </div>
@@ -91,6 +116,7 @@ const Updateassign = () => {
       <label className="block text-sm font-medium text-purple-700"> Assignment Description</label>
       <textarea
         name="description"
+        defaultValue={description}
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
       ></textarea>
     </div>
