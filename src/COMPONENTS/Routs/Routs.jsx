@@ -6,6 +6,7 @@ import Main from "../Pages/Main/Main";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import Errorpage from "../Pages/Errorpage";
+import AddAssignment from "../Pages/AddAssignments/Addassignment";
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path:'/regi',
         element:<Signup />
+      },
+      {
+        path:'/add',
+        element:<AddAssignment></AddAssignment>
       }
       
     ]
