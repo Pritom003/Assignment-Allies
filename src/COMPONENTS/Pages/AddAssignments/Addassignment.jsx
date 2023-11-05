@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from '../../Layouts/Navbar/Navbar';
 import axios from 'axios';
+// import success from '../../../assets/Animation - 1699191876738.json'
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const AddAssignment = () => {
 
@@ -11,8 +14,7 @@ const AddAssignment = () => {
     const name = form.name.value;
     const email = form.email.value;
     const number = form.number.value;
-    const type = form.type.value;
-   
+    const type = form.type.value
     const dueDate = form.dueDate.value;
     const description = form.description.value;
     const mydata = {
@@ -25,9 +27,39 @@ const AddAssignment = () => {
       photo,
     };
 
+    if (!name || !number || !email || !description) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Validation Error',
+        text: 'All fields are required!',
+      });
+      return;
+    }
+
+    if (number <= 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Validation Error',
+        text: 'Mark must be a positive number!',
+      });
+      return;
+    }
+
    axios.post('http://localhost:5000/assignments',mydata)
    .then(res=>{
     console.log(res.data);
+   
+    if (res.data.insertedId) {
+      // console.log(data)
+      Swal.fire({
+        position: 'middle',
+        icon: 'success',
+        title: 'New assignmen added to the assignment page',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  
    })
    .catch(err=>{console.log(err.message);})
 
