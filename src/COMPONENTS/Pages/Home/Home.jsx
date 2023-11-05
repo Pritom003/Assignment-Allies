@@ -8,7 +8,7 @@ import Features from './Features';
 
 const Home = () => {
   return (
-    <div className='grid mx-auto justify-center items-center align-middle'>
+    <div >
     <Navbar></Navbar>
          <div className='mt-10'>
          <Banner></Banner>

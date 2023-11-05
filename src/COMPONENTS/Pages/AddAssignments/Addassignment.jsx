@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
 import Navbar from '../../Layouts/Navbar/Navbar';
+import axios from 'axios';
 
 const AddAssignment = () => {
-  const [assignmentData, setAssignmentData] = useState({
-    title: '',
-    thumbnail: '',
-    description: '',
-    mark: 0,
-    difficulty: 'easy',
-    dueDate: '',
-  });
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +24,13 @@ const AddAssignment = () => {
       description,
       photo,
     };
+
+   axios.post('http://localhost:5000/assignments',mydata)
+   .then(res=>{
+    console.log(res.data);
+   })
+   .catch(err=>{console.log(err.message);})
+
     console.log(mydata);
   }
   return (

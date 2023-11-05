@@ -12,6 +12,7 @@ const Navbar = () => {
 
   <li> <NavLink to='/login'>login</NavLink></li>
   <li> <NavLink to='/add'> create assignment</NavLink></li>
+  <li> <NavLink to='/allass'> Assignments</NavLink></li>
   {/* <li> <NavLink to='/update'> update product</NavLink></li> */}
   
   </>
