@@ -1,10 +1,11 @@
 import React from 'react';
 import Navbar from '../Layouts/Navbar/Navbar';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const Updateassign = () => {
+  const navigate = useNavigate();
   const loaderdata=useLoaderData()
   const { name, number, type, email, dueDate, description, photo,_id } = loaderdata;
   const handleSubmit = (e) => {
@@ -36,6 +37,7 @@ const Updateassign = () => {
             icon: 'success',
             confirmButtonText: 'Cool'
         })
+        navigate('/allass'); 
       }
     
     

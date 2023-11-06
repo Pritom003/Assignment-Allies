@@ -12,6 +12,8 @@ import Details from "../Pages/assignments/Details";
 import Updateassign from "../Pages/Updateassign";
 import Privaterout from "./PrivateRoutes";
 import Takeassignment from "../Pages/TakeAssignment.jsx/Takeassignment";
+import Myassignment from "../Pages/Myassignment/Myassignment";
+import Allsubmission from "../Pages/Submissions/Allsubmission";
 
 
 const router = createBrowserRouter([
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
       {
         path:'/allass',
         element:<AllAssignment></AllAssignment>
+      },
+      {
+        path:'/allsubm',
+        element:<Allsubmission></Allsubmission>
+      },
+      {
+        path:'/mysubm',
+        element:<Myassignment></Myassignment>
       },
       {
         path:'/details/:_id',

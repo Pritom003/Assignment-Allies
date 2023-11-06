@@ -13,6 +13,8 @@ const Navbar = () => {
   <li> <NavLink to='/login'>login</NavLink></li>
   <li> <NavLink to='/add'> create assignment</NavLink></li>
   <li> <NavLink to='/allass'> Assignments</NavLink></li>
+  <li> <NavLink to='/allsubm'> Allsubmission</NavLink></li>
+  <li> <NavLink to='/mysubm'> mysubmission</NavLink></li>
   {/* <li> <NavLink to='/update'> update product</NavLink></li> */}
   
   </>
@@ -60,8 +62,10 @@ const Navbar = () => {
      {link}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn"></a>
+  <div className="navbar-end mt-6">
+  <div className="tooltip" data-tip="user name">
+  <button className="btn ">login</button>
+</div>
   </div>
 </div>
    

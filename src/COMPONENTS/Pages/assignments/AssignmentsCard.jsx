@@ -18,6 +18,7 @@ const AssignmentsCard = ({ assignment }) => {
             <h1 className="text-5xl font-bold">Assignment Name: {name}</h1>
             <p className="py-6">Total Marks: {number}</p>
             <p className="py-6">Due Date: {dueDate}</p>
+            <p className="py-6">type :{type}</p>
             <Link to={`/details/${_id}`}>
               <button className="btn btn-primary">View Details</button>
             </Link>
