@@ -5,47 +5,64 @@ import { Link } from 'react-router-dom';
 import Navbar from '../Layouts/Navbar/Navbar';
 import { AuthContext } from '../Providers/AuthiProvider';
 import { useContext, useState } from 'react';
+import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 const Signup = () => {
-  const { createUser } =useContext(AuthContext);
-
+  const { createUser, creategooglesignup } = useContext(AuthContext);
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [passerr, setpasserr] = useState(''); // Fix the state variable name here
-  const [registererror, setregierror] = useState('');
-
-
+  // const [registererror, setregierror] = useState('');
 
   const handleregister = (e) => {
-
-
     e.preventDefault();
     const form = e.target;
     const photo = form.photo.value;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-console.log(name,email,password);
-if (!/^.{6,}$/.test(password)) {
-  setpasserr('Password should be more than 6 characters');
-} else if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).*$/.test(password)) {
-  setpasserr('Password should contain at least one capital letter and one special character');
-} else {
-  setpasserr('');
-  setpassword(password);
-  setemail(email);
-}
 
+    if (!/^.{6,}$/.test(password)) {
+      setpasserr('Password should be more than 6 characters');
+    } else if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).*$/.test(password)) {
+      setpasserr('Password should contain at least one capital letter and one special character');
+    } else {
+      setpasserr('');
+      setpassword(password);
+      setemail(email);
 
-createUser(email, password)
-.then((res) => {
-  console.log(res.user);
- 
-  })
-   
-    .catch((err) => {
-      console.error(err, 'error img');
-    });
-  }
+      createUser(email, password)
+        .then((res) => {
+          console.log(res.user);
+          updateProfile(res.user, {
+            displayName: `${name}`,
+            photoURL: `${photo}`,
+          })
+            .then((nameimg) => {
+              console.log('success image', nameimg);
+            })
+            .catch((err) => {
+              console.error(err, 'error img');
+            });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your registration was successful!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'something went wrong',
+            footer: '<a href=""> try again</a>',
+          });
+        });
+    }
+  };
 
   return (
     <div> 

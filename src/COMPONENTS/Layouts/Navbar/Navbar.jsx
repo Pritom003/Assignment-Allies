@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/icons8-assignment-64.png'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthiProvider';
                  
 const Navbar = () => {
+  const {user ,logout}=useContext(AuthContext)
+console.log(user);
+
+
+const handlesignout=()=>{
+  logout()
+  .then(res=>{
+    console.log('logged out',res)
+
+  })
+  .catch(err=>{
+    console.log('error logged out',err)
+  })
+}
+
+
 
 
   const link=<>
@@ -62,11 +79,51 @@ const Navbar = () => {
      {link}
     </ul>
   </div>
-  <div className="navbar-end mt-6">
-  <div className="tooltip" data-tip="user name">
-  <button className="btn ">login</button>
-</div>
+
+  <div className="navbar-end ">
+  {
+    user ?
+    
+    <div className=" mt-6">
+    <div className="tooltip" data-tip={user.displayName}>
+    <div className="avatar p-4">
+  <div className="w-10  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+    <img src={user.photoURL} />
   </div>
+</div>
+
+    
+  </div>
+    </div> 
+    
+    
+//     <div className='flex  justify-center  align-middle items-center gap-2'>
+//     
+// <div className='text-purple-600 flex-none gap-2 text-center mr-4'>
+// </div> </div>
+
+
+
+:''
+   }
+    
+   {
+    user ? <button onClick={handlesignout} className=' font-bold md:mr-2 text-purple-300'>
+      
+   <p>Logout</p>
+       
+      </button>: <Link to='/login'><button
+     className='text-xl  font-bold mr-2 text-purple-950'>login</button></Link>
+   }
+  </div>
+
+
+
+ 
+
+
+  
+  {/* */}
 </div>
    
   );
