@@ -4,10 +4,19 @@ import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Layouts/Navbar/Navbar';
 import { AuthContext } from '../Providers/AuthiProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 const Signup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser } =useContext(AuthContext);
+
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const [passerr, setpasserr] = useState(''); // Fix the state variable name here
+  const [registererror, setregierror] = useState('');
+
+
+
   const handleregister = (e) => {
+
 
     e.preventDefault();
     const form = e.target;
@@ -16,6 +25,17 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
 console.log(name,email,password);
+if (!/^.{6,}$/.test(password)) {
+  setpasserr('Password should be more than 6 characters');
+} else if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\-]).*$/.test(password)) {
+  setpasserr('Password should contain at least one capital letter and one special character');
+} else {
+  setpasserr('');
+  setpassword(password);
+  setemail(email);
+}
+
+
 createUser(email, password)
 .then((res) => {
   console.log(res.user);
@@ -66,6 +86,9 @@ createUser(email, password)
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
+          <div>
+                {passerr && <p className="text-red-600">{passerr}</p>}
+              </div>
         </div>
         <div className="form-control mt-6">
           <button className="btn  bg-[#097969]">Signup </button>

@@ -104,7 +104,7 @@ const handlepermission=()=>{
              }
               <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
             </div>
-            <button>take assignment</button>
+            <Link to={`/take/${_id}`}><button className="btn btn-primary">take assignment</button></Link>
           </div>
         </div>
       </div>

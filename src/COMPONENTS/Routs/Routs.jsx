@@ -11,6 +11,7 @@ import AllAssignment from "../Pages/assignments/AllAssignment";
 import Details from "../Pages/assignments/Details";
 import Updateassign from "../Pages/Updateassign";
 import Privaterout from "./PrivateRoutes";
+import Takeassignment from "../Pages/TakeAssignment.jsx/Takeassignment";
 
 
 const router = createBrowserRouter([
@@ -41,12 +42,17 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params._id}`)
       },
       {
+        path:'/take/:_id',
+        element:<Takeassignment></Takeassignment>,
+        loader:({params})=>fetch(`http://localhost:5000/assignments/${params._id}`)
+      },
+      {
         path:'/allass',
         element:<AllAssignment></AllAssignment>
       },
       {
         path:'/details/:_id',
-        element:<Details></Details>,
+        element:<Privaterout><Details></Details></Privaterout>,
         loader:({params})=>fetch(`http://localhost:5000/assignments/${params._id}`)
       }
       
