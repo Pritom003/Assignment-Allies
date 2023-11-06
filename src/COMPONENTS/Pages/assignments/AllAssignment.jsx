@@ -27,6 +27,7 @@ const AllAssignment = () => {
   const pages = [...Array(totalPages).keys()];
 
   useEffect(() => {
+    
     fetch(`http://localhost:5000/assignments?page=${currentPage}&size=${itemsPerPage}`)
       .then((res) => res.json())
       .then((fetchedData) => {
@@ -46,6 +47,7 @@ const AllAssignment = () => {
   const handlePrevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
+     
     }
   };
 
@@ -77,7 +79,7 @@ const AllAssignment = () => {
     }, 1500);
   };
   return (
-    <div>
+    <div className=' bg-gradient-to-r from-sky-100 to-indigo-50'>
       <Navbar />
 
       <div className='w-[400px] mx-auto mt-5'>
@@ -107,7 +109,7 @@ const AllAssignment = () => {
             <AssignmentsCard key={index} assignment={assignment}></AssignmentsCard>
           ))
         )}
-        <div className='flex justify-center align-middle items-center gap-2'>
+        <div className='flex mb-10 justify-center align-middle items-center gap-2'>
           <p>{currentPage + 1}</p>
           <button onClick={handlePrevPage}>Prev</button>
           {pages.map((pageNum, i) => (

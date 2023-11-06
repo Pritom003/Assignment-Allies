@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../../Layouts/Navbar/Navbar';
 import encourage from '../../../assets/Animation - 1699231659481.json'
 import success from '../../../assets/Animation - 1699191876738.json'
 import Lottie from 'lottie-react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Providers/AuthiProvider';
+import { useLoaderData } from 'react-router-dom';
 const Takeassignment = () => {
+  const {user}=useContext(AuthContext)
+  const Datas=useLoaderData()
+  console.log(Datas);
+  const {email,number,name}=Datas
   const handlesubmission=e=>{
     e.preventDefault()
     const form = e.target;
     const file = form.file.value;
     const description = form.description.value;
-    const name = form.name.value;
-    const email = form.email.value;
-    const mydata={file,description,name,email}
+    const examinee  = form.name.value;
+    // const email = form.email.value;
+    const type = form.type.value;
+    const examineeemail =user.email
+    // const data={email,number,name}
+    const author=email
+    const totalmark=number
+      const assignmentname=name
+    const mydata={file,description,examinee ,
+      examineeemail,type,author,totalmark,assignmentname}
     console.log(mydata);
     axios.post('http://localhost:5000/mysub',mydata)
     .then(res=>{
@@ -26,7 +39,7 @@ const Takeassignment = () => {
           showConfirmButton: false,
           timer: 1500
         });
-          console.log('congo');
+          
         }
 
     })
@@ -55,7 +68,7 @@ const Takeassignment = () => {
         ></textarea>
       </div>
       <div className='flex gap-2 justify-center align-middle items-center'>
-      <div className="mb-4 sm:mb-0">
+      {/* <div className="mb-4 sm:mb-0">
         <label className="block text-sm font-medium text-purple-950">YOUR Email:</label>
         <input required
           type="email"
@@ -63,7 +76,7 @@ const Takeassignment = () => {
           className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring
            focus:ring-indigo-200 focus:outline-none w-full"
         />
-      </div>
+      </div> */}
       <div className="mb-4 sm:mb-0">
         <label className="block text-sm font-medium text-purple-950">YOUR Name:</label>
         <input
@@ -72,6 +85,17 @@ const Takeassignment = () => {
           className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring
            focus:ring-indigo-200 focus:outline-none w-full"
         />
+      </div>
+      <div>
+      <label className="block text-sm font-medium text-purple-950">status:</label>
+      <select
+          name="type"
+          className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
+        >
+          <option value="pending">pending</option>
+         
+        
+        </select>
       </div>
       </div>
        

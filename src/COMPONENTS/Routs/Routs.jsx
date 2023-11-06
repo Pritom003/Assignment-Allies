@@ -54,11 +54,15 @@ const router = createBrowserRouter([
       },
       {
         path:'/allsubm',
-        element:<Allsubmission></Allsubmission>
+        element:<Allsubmission></Allsubmission>,
+        loader:()=>fetch(`http://localhost:5000/mysub`)
+       
       },
       {
         path:'/mysubm',
-        element:<Myassignment></Myassignment>
+        element:<Myassignment></Myassignment>,
+        
+       
       },
       {
         path:'/details/:_id',

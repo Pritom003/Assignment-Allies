@@ -1,9 +1,28 @@
 import React from 'react';
+import Navbar from '../../Layouts/Navbar/Navbar';
+import { useLoaderData } from 'react-router-dom';
+import MyassignmentCaed from './MyassignmentCaed';
 
 const Myassignment = () => {
+  const loadeddata = useLoaderData();
+  // console.log(loadeddata.length);
+
   return (
     <div>
-      my 
+      <Navbar />
+
+{
+  loadeddata?.map((item, index) => 
+  <MyassignmentCaed key={index} item={item}></MyassignmentCaed>)
+}
+
+      {/* {loadeddata?.length > 0 ? (
+        loadeddata.map((item, index) => (
+          <MyassignmentCaed item={item} key={index} />
+        ))
+      ) : (
+        <p>No data available.</p>
+      )} */}
     </div>
   );
 };
