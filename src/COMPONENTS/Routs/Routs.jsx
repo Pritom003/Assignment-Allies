@@ -14,6 +14,7 @@ import Privaterout from "./PrivateRoutes";
 import Takeassignment from "../Pages/TakeAssignment.jsx/Takeassignment";
 import Myassignment from "../Pages/Myassignment/Myassignment";
 import Allsubmission from "../Pages/Submissions/Allsubmission";
+import Markassignment from "../Pages/Submissions/Markassignment";
 
 
 const router = createBrowserRouter([
@@ -60,8 +61,9 @@ const router = createBrowserRouter([
        
       },
       {
-        path:'/mysubm',
-        element:<Myassignment></Myassignment>,
+        path:'/markass/:id',
+        element:<Markassignment></Markassignment>,
+        loader:({params})=>fetch(`http://localhost:5000/mysub/${params.id}`)
         
        
       },

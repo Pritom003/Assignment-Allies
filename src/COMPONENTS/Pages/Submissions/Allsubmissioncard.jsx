@@ -1,53 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PDFViewer from './pdfpreview';
-// import { Viewer, Worker } from '@react-pdf-viewer/core'
-// import {defaultLayoutPlugin} from '@react-pdf-viewer/default-layout'
-// import '@react-pdf-viewer/core/lib/styles/index.css';
-// import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-import { Worker } from '@react-pdf-viewer/core'
-import { Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import pdffi from "../../../assets/hello.pdf" 
-const Allsubmissioncard = ({item}) => {
-const{file,description,examinee ,examineeemail,
-  type,author,totalmark,assignmentname}=item
-console.log(author);
-// const newplug=defaultLayoutPlugin()
+
+const Allsubmissioncard = ({ item }) => {
+  const { _id, examinee, examineeemail, type, author, totalmark, assignmentname } = item;
+  console.log(author);
+
   return (
     <div>
-       <div className="card w-96 bg-base-100 shadow-xl">
-  <div className="card-body">
-    <h2 className="card-title">examinee name :{examinee}</h2>
-    <p >Examinee email: {examineeemail} </p>
-    <p>description:{description}</p>
-    <p>assignment type:{ type}</p>
-    <p>assignment mark:{ totalmark}</p>
-    <p>assignment name:{ assignmentname}</p>
-    <Link to={file}>Pdf file</Link>
-         {/* <div>
-         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-          ...
-          {
-            file? <Viewer fileUrl={file} plugins={[newplug]}/>: <p>no deta</p>
-          }
-          </Worker>;
-         </div> */}
-         <Worker
-         workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-   
-   <Viewer fileUrl={pdffi} />;
-</Worker>
-
-
-
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary"></button>
-      <button className="btn btn-primary"></button>
-    </div>
-  </div>
-</div>
-      
+      {type || type === 'pending' ? (
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body">
+            <h2 className="card-title">Examinee name: {examinee}</h2>
+            <p>Examinee email: {examineeemail}</p>
+            <p>Assignment type: {type}</p>
+            <p>Assignment name: {assignmentname}</p>
+            <div className="card-actions justify-end">
+              <Link to={`/markass/${_id}`}>
+                <button className="btn btn-primary">Give Mark</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : <>h</>}
     </div>
   );
 };
