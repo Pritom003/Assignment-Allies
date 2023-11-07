@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Navbar from '../../Layouts/Navbar/Navbar';
 import { useLoaderData } from 'react-router-dom';
 import MyassignmentCaed from './MyassignmentCaed';
+import axios from 'axios';
+import { AuthContext } from '../../Providers/AuthiProvider';
+// import { error } from 'pdf-lib';
 
 const Myassignment = () => {
- const loadeddata=useLoaderData()
-  console.log(loadeddata.length);
+//  const loadeddata=useLoaderData()
+const {user}=useContext(AuthContext)
+  
+  const[loadeddata,setloaded]=useState([])
+ 
+  useEffect(()=>{
+  axios.get(`http://localhost:5000/mysub/user/${user?.email}`,{withCredentials:true})
+  .then((res)=>{
+      setloaded(res.data)
+      
+    })
+    .catch(err=>{console.log(err);})
+    
+},[user.email])
+
+  
 
   return (
     <div>

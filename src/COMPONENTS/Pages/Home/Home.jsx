@@ -14,9 +14,12 @@ const Home = () => {
          <Banner></Banner>
           </div> 
           <div>
+          <div className="text-center mb-5 border-b-4 border-dotted  border-green-950 mt-10">
+  <h1 className="text-5xl font-extrabold text-purple-600"> OUR Features</h1>
+</div>
             <Features/>
           </div>
-          <div   className="border-4 bg-purple-50 mb-5 
+          <div   className="border-4 bg-purple-50 mb-5 mt-52
            border-gray-600 shadow-2xl">
            
             <Faq></Faq>

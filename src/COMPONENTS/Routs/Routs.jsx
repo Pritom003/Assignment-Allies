@@ -63,8 +63,7 @@ const router = createBrowserRouter([
       {
         path:'/myassign',
         element:<Privaterout><Myassignment></Myassignment></Privaterout>
-      ,
-        loader:()=>fetch(`http://localhost:5000/mysub`)
+      
        
       },
       {
