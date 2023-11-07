@@ -31,7 +31,7 @@ const handlesignout=()=>{
   <li> <NavLink to='/add'> create assignment</NavLink></li>
   <li> <NavLink to='/allass'> Assignments</NavLink></li>
   <li> <NavLink to='/allsubm'> Allsubmission</NavLink></li>
-  <li> <NavLink to='/mysubm'> mysubmission</NavLink></li>
+  <li> <NavLink to='/myassign'> mysubmission</NavLink></li>
   {/* <li> <NavLink to='/update'> update product</NavLink></li> */}
   
   </>

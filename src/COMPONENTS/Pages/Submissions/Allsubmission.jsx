@@ -6,20 +6,9 @@ import { AuthContext } from '../../Providers/AuthiProvider';
 import axios from 'axios';
 
 const Allsubmission = () => {
-  // const {user}=useContext(AuthContext)
-  const loadeddata = useLoaderData();
-  // const [ loadeddata ,setloadeddata ]=useState([])
-  // const url = `http://localhost:5000/mysub?email=${user?.email}`;
-  // useEffect(() => {
 
-  //   axios.get(url, {withCredentials: true})
-  //   .then(res => {
-  //       setloadeddata(res.data);
-  //   })
-    // fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => setBookings(data))
-// }, [url]);
+  const loadeddata = useLoaderData();
+  
 
   return (
     <div>

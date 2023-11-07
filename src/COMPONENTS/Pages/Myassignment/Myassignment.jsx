@@ -4,8 +4,8 @@ import { useLoaderData } from 'react-router-dom';
 import MyassignmentCaed from './MyassignmentCaed';
 
 const Myassignment = () => {
- 
-  // console.log(loadeddata.length);
+ const loadeddata=useLoaderData()
+  console.log(loadeddata.length);
 
   return (
     <div>
@@ -13,13 +13,13 @@ const Myassignment = () => {
 
 
 
-      {/* {loadeddata?.length > 0 ? (
+      {loadeddata?.length > 0 ? (
         loadeddata.map((item, index) => (
           <MyassignmentCaed item={item} key={index} />
         ))
       ) : (
         <p>No data available.</p>
-      )} */}
+      )}
     </div>
   );
 };
