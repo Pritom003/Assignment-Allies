@@ -19,7 +19,7 @@ const Myassignment = () => {
         ))
       ) : (
         <p>No data available.</p>
-      )}
+      )} < p className='text-center'> your assignment result</p>
     </div>
   );
 };
