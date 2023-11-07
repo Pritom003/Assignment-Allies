@@ -19,7 +19,7 @@ const Home = () => {
 </div>
             <Features/>
           </div>
-          <div   className="border-4 bg-purple-50 mb-5 mt-52
+          <div   className="border-4 bg-purple-50 mb-5 mt-32
            border-gray-600 shadow-2xl">
            
             <Faq></Faq>

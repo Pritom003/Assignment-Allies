@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
-    <div className='relative h-[80vh]'>
+    <div className='relative md:h-[80vh] h-[100vh]'>
       <video autoPlay muted playsInline style={{ objectFit: 'cover', width: '100%', height: '80%' }}>
         <source src={video} type="video/mp4" />
         {/* Add other video formats if needed (webm, ogg, etc.) */}
       </video>
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white">
+      <div className="absolute md:top-0 top-4 left-0 w-full
+       md:h-full h-4/4 flex items-center justify-center
+        text-white">
         <div className="bg-black w-full bg-opacity-30 p-8 rounded-md">
         
   <div>

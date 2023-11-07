@@ -101,7 +101,7 @@ if(author===user.email){
         />
       </div>
       <div className="mb-4 sm:mb-0">
-        <label className="text-3xl text-purple-950"> Assignment fidback</label>
+        <label className="text-3xl text-purple-950"> Assignment feedback</label>
         <textarea
           name="description"
           className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"

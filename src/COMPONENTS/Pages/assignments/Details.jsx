@@ -78,7 +78,7 @@ const handlepermission=()=>{
       <div className=''>
         <div className="relative flex max-w-full flex-col rounded-xl
           bg-gradient-to-r from-purple-100 to-indigo-200 text-gray-700 shadow-md">
-          <div className="relative m-0 overflow-hidden grid align-middle
+          <div className="relative m-0 h-[60vh] overflow-hidden grid align-middle
            items-center justify-center text-gray-700 bg-transparent
             rounded-none shadow-none bg-clip-border">
             <img src={photo} alt="ui/ux review check" />

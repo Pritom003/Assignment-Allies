@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../Layouts/Navbar/Navbar';
 import { AuthContext } from '../Providers/AuthiProvider';
 import axios from 'axios';
+import { FcGoogle } from "react-icons/fc";
+import Swal from 'sweetalert2';
 // import lotieanim from '../../assets/Animation - 1699123755231.json'
 const Login = () => {
   const location=useLocation()
@@ -38,8 +40,11 @@ const Login = () => {
           console.log('user', res.user);
         })
         .catch((error) => {
-          console.log('err', error.message);
-        });
+          console.error(error);
+          Swal.fire({
+            icon: 'error',
+            text: 'Email and password do not match, please try again!',
+          })})
     };
   return (
     <div>
@@ -51,7 +56,7 @@ const Login = () => {
    
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handlelogin} className="card-body">
+      <form onSubmit={handlelogin} className="card-body mb-8">
  
       <div className="form-control">
           <label className="label">
@@ -80,11 +85,10 @@ const Login = () => {
       </form>
       <button
             onClick={handlegooglepop}
-            className="flex shadow-2xl items-center justify-center py-12 md:py-24 px-2 md:px-10 border-purple-200 border-4 align-middle md:gap-2 text-sm md:text-xl font-bold"
+            className="flex shadow-2xl items-center justify-center  py-12 md:py-24 px-2 md:px-10 border-purple-200 border-4 align-middle md:gap-2 text-sm md:text-xl font-bold"
           >
             Sign in with Google
-            {/* <div className='text-3xl'><FcGoogle></FcGoogle>
-           </div> */}
+            <div className='text-3xl'><FcGoogle></FcGoogle></div>
           </button>
     </div>
   </div>
