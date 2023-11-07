@@ -79,7 +79,7 @@ const AllAssignment = () => {
     }, 1500);
   };
   return (
-    <div className=' bg-gradient-to-r from-sky-100 to-indigo-50'>
+    <div className=' bg-gradient-to-r  from-sky-100 to-indigo-50'>
       <Navbar />
 
       <div className='w-[400px] mx-auto mt-5'>

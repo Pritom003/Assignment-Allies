@@ -10,11 +10,12 @@ const Allsubmission = () => {
     <div>
       <Navbar></Navbar>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 justify-center align-middle items-center gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 mx-auto justify-center align-middle items-center gap-2">
         {loadeddata
           .filter((item) => item.type === 'pending')
           .map((item, index) => (
-            <div key={index} className="card w-96 bg-base-100 shadow-xl">
+            <div key={index} className="card 
+            w-96 md:w-56 md:h-[350px]  bg-base-100 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Examinee name: {item.examinee}</h2>
                 <p>Examinee email: {item.examineeemail}</p>
@@ -30,7 +31,7 @@ const Allsubmission = () => {
           ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Allsubmission;
