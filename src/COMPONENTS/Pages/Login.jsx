@@ -1,10 +1,14 @@
 // import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../Layouts/Navbar/Navbar';
 import { AuthContext } from '../Providers/AuthiProvider';
+import axios from 'axios';
 // import lotieanim from '../../assets/Animation - 1699123755231.json'
 const Login = () => {
+  const location=useLocation()
+  console.log(location);
+  const navigate=useNavigate()
   const { loginuser,creategooglesignup } = useContext(AuthContext);
   const handlelogin = (e) => {
     e.preventDefault();
@@ -15,8 +19,16 @@ const Login = () => {
     loginuser(email, password)
     .then((res) => {
       console.log(res.user);
-     
-    })
+      const user={email}
+      console.log(user);
+    //  navigate(location?.state? location.state :'/')
+    axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+    .then(res => {
+        console.log(res.data)
+        if (res.data.success) {
+            navigate(location?.state ? location?.state : '/')
+        }
+    })})
     .catch((error) => {
       console.error(error);
     })}

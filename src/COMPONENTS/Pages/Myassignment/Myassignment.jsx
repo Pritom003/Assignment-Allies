@@ -4,17 +4,14 @@ import { useLoaderData } from 'react-router-dom';
 import MyassignmentCaed from './MyassignmentCaed';
 
 const Myassignment = () => {
-  const loadeddata = useLoaderData();
+ 
   // console.log(loadeddata.length);
 
   return (
     <div>
       <Navbar />
 
-{
-  loadeddata?.map((item, index) => 
-  <MyassignmentCaed key={index} item={item}></MyassignmentCaed>)
-}
+
 
       {/* {loadeddata?.length > 0 ? (
         loadeddata.map((item, index) => (

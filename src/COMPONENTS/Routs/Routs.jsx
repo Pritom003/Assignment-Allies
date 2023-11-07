@@ -54,7 +54,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/allsubm',
-        element:<Allsubmission></Allsubmission>,
+        element:<Privaterout><Allsubmission></Allsubmission>,</Privaterout>
+      ,
         loader:()=>fetch(`http://localhost:5000/mysub`)
        
       },

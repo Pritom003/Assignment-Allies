@@ -16,6 +16,7 @@ const Takeassignment = () => {
     e.preventDefault()
     const form = e.target;
     const file = form.file.value;
+    const link = form.link.value;
     const description = form.description.value;
     const examinee  = form.name.value;
     // const email = form.email.value;
@@ -25,7 +26,7 @@ const Takeassignment = () => {
     const author=email
     const totalmark=number
       const assignmentname=name
-    const mydata={file,description,examinee ,
+    const mydata={file,description,examinee ,link,
       examineeemail,type,author,totalmark,assignmentname}
     console.log(mydata);
     axios.post('http://localhost:5000/mysub',mydata)
@@ -52,13 +53,26 @@ const Takeassignment = () => {
 <div className='grid grid-cols-1 md:grid-cols-2 bg-purple-50 align-middle items-center justify-center '>
  
 <form onSubmit={handlesubmission} className='p-4'>
-        <div>
-          <label className="label">
-            <span className="text-3xl text-purple-950">Assignment pdf</span>
+        <div className='flex justify-between items-center align-middle'>
+    <div>
+    <label className="label">
+            <span className="text-3xl text-purple-950">Assignment pdflink</span>
+          </label>
+          <input type="url" 
+          //  accept=".pdf
+      name='link'
+      className="file-input file-input-bordered file-input-secondary w-full " />
+    </div>
+
+      <div>
+      <label className="label">
+            <span className="text-3xl text-purple-950">Assignment pdf file</span>
           </label>
           <input type="file" 
+           accept=".pdf"
       name='file'
       className="file-input file-input-bordered file-input-secondary w-full " />
+      </div>
         </div>
         <div className="mb-4 sm:mb-0">
         <label className="text-3xl text-purple-950"> Assignment short  Description</label>
