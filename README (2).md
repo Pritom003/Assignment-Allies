@@ -58,21 +58,6 @@ Thank you for choosing AssignmentAllies as your study companion. Let's learn tog
 
 
 
-## Used By
-
-This project is used by the following companies:
-
-- Company 1
-- Company 2
-
-
-## Running Tests
-
-To run tests, run the following command
-
-```bash
-  npm run test
-```
 
 
 
