@@ -29,16 +29,17 @@ const AuthiProvider = ({children}) => {
   const logout=()=>
   {
     setLoading(true)
-    return axios.post('http://localhost:5000/logout', {}, 
-    { withCredentials: true })
-    .then(() => {
+    return signOut(auth);
+    // return axios.post('https://assignment-allies-server-site.vercel.app/logout', {}, 
+    // { withCredentials: true })
+    // .then(() => {
       
-      return signOut(auth);
-    })
-    .catch(error => {
-      console.error('Axios Error:', error);
-      // Handle the error, provide feedback to the user, or take appropriate actions.
-    });
+    //   return signOut(auth);
+    // })
+    // .catch(error => {
+    //   console.error('Axios Error:', error);
+    //   // Handle the error, provide feedback to the user, or take appropriate actions.
+    // });
 }
   useEffect(()=>{
     const unSubscribe=  onAuthStateChanged(auth,

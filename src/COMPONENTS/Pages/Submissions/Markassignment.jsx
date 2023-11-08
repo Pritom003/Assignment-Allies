@@ -24,9 +24,10 @@ const number = form.number.value;
        type,description,number
       };
       console.log(mydata);
-     
+      
 if(author===user.email){
-  axios.put(`http://localhost:5000/mysub/${_id}`,mydata)
+  
+  axios.put(`https://assignment-allies-server-site.vercel.app/mysub/${_id}`,mydata)
   .then(res=>{console.log(res.data)
    if (res.data.modifiedCount > 0) {
      Swal.fire({

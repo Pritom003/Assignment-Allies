@@ -7,7 +7,7 @@ const Usetsquery = () => {
     {
       queryKey:"all_assignment",
       queryFn:async()=>{
-        const data= await  fetch(`http://localhost:5000/assignments?page=${currentPage}&size=${itemsPerPage}`)
+        const data= await  fetch(`https://assignment-allies-server-site.vercel.app/assignments?page=${currentPage}&size=${itemsPerPage}`)
         return await data.json
       }
     }

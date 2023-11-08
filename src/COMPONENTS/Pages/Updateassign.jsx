@@ -28,7 +28,7 @@ const Updateassign = () => {
       photo,
 
     };
-    axios.put(`http://localhost:5000/assignments/${_id}`,mydata)
+    axios.put(`https://assignment-allies-server-site.vercel.app/assignments/${_id}`,mydata)
     .then(res=>{console.log(res.data);
       if (res.data.modifiedCount > 0) {
         Swal.fire({

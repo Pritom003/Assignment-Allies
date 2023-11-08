@@ -42,12 +42,12 @@ const router = createBrowserRouter([
       {
         path:'/update/:_id',
         element:<Updateassign></Updateassign>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params._id}`)
+        loader:({params})=>fetch(`https://assignment-allies-server-site.vercel.app/assignments/${params._id}`)
       },
       {
         path:'/take/:_id',
         element:<Takeassignment></Takeassignment>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params._id}`)
+        loader:({params})=>fetch(`https://assignment-allies-server-site.vercel.app/assignments/${params._id}`)
       },
       {
         path:'/allass',
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path:'/allsubm',
         element:<Privaterout><Allsubmission></Allsubmission>,</Privaterout>
       ,
-        loader:()=>fetch(`http://localhost:5000/mysub`)
+        loader:()=>fetch(`https://assignment-allies-server-site.vercel.app/mysub`)
        
       },
       {
@@ -69,14 +69,14 @@ const router = createBrowserRouter([
       {
         path:'/markass/:id',
         element:<Markassignment></Markassignment>,
-        loader:({params})=>fetch(`http://localhost:5000/mysub/${params.id}`)
+        loader:({params})=>fetch(`https://assignment-allies-server-site.vercel.app/mysub/${params.id}`)
         
        
       },
       {
         path:'/details/:_id',
         element:<Privaterout><Details></Details></Privaterout>,
-        loader:({params})=>fetch(`http://localhost:5000/assignments/${params._id}`)
+        loader:({params})=>fetch(`https://assignment-allies-server-site.vercel.app/assignments/${params._id}`)
       }
       
     ]

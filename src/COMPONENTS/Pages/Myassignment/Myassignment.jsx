@@ -13,7 +13,7 @@ const {user}=useContext(AuthContext)
   const[loadeddata,setloaded]=useState([])
  
   useEffect(()=>{
-  axios.get(`http://localhost:5000/mysub/user/${user?.email}`,{withCredentials:true})
+  axios.get(`https://assignment-allies-server-site.vercel.app/mysub/user/${user?.email}`,{withCredentials:true})
   .then((res)=>{
       setloaded(res.data)
       

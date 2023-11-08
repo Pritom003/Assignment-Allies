@@ -29,7 +29,7 @@ const Takeassignment = () => {
     const mydata={file,description,examinee ,link,
       examineeemail,type,author,totalmark,assignmentname}
     console.log(mydata);
-    axios.post('http://localhost:5000/mysub',mydata)
+    axios.post('https://assignment-allies-server-site.vercel.app/mysub',mydata)
     .then(res=>{
       console.log(res.data);
       if (res.data.insertedId) {

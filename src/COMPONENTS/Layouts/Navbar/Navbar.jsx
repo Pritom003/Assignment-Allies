@@ -28,6 +28,7 @@ const handlesignout=()=>{
   {/* <li> <NavLink to='/carts'>MY Cart</NavLink></li>  */}
 
   <li> <NavLink to='/login'>login</NavLink></li>
+  <li> <NavLink to='/regi'>signup</NavLink></li>
   <li> <NavLink to='/add'> create assignment</NavLink></li>
   <li> <NavLink to='/allass'> Assignments</NavLink></li>
   <li> <NavLink to='/allsubm'> Allsubmission</NavLink></li>

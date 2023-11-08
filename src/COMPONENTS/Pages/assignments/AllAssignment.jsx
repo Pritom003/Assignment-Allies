@@ -12,7 +12,7 @@ const AllAssignment = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/assignmentcount')
+    fetch('https://assignment-allies-server-site.vercel.app/assignmentcount')
       .then((res) => res.json())
       .then((fetchedCount) => {
         setCount(fetchedCount);
@@ -28,7 +28,7 @@ const AllAssignment = () => {
 
   useEffect(() => {
     
-    fetch(`http://localhost:5000/assignments?page=${currentPage}&size=${itemsPerPage}`)
+    fetch(`https://assignment-allies-server-site.vercel.app/assignments?page=${currentPage}&size=${itemsPerPage}`)
       .then((res) => res.json())
       .then((fetchedData) => {
         setData(fetchedData);

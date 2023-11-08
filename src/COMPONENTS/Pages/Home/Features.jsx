@@ -5,7 +5,7 @@ const Features = () => {
 
   const [data,setdata]=useState([])
   useEffect(()=>{
-  axios.get('http://localhost:5000/features')
+  axios.get('https://assignment-allies-server-site.vercel.app/features')
   .then(res=>{
     console.log(res.data);
     setdata(res.data)

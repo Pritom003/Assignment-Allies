@@ -23,14 +23,17 @@ const Login = () => {
       console.log(res.user);
       const user={email}
       console.log(user);
-    //  navigate(location?.state? location.state :'/')
-    axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
-    .then(res => {
-        console.log(res.data)
-        if (res.data.success) {
-            navigate(location?.state ? location?.state : '/')
-        }
-    })})
+     navigate(location?.state? location.state :'/')
+    // https://assignment-allies-server-site.vercel.app
+    // https://assignment-allies-server-site.vercel.app
+    // axios.post('https://assignment-allies-server-site.vercel.app/jwt', user, { withCredentials: true })
+    // .then(res => {
+    //     console.log(res.data)
+    //     if (res.data.success) {
+    //         navigate(location?.state ? location?.state : '/')
+    //     }
+    // })
+  })
     .catch((error) => {
       console.error(error);
     })}

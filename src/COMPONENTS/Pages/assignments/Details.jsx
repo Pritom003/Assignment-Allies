@@ -26,7 +26,7 @@ const Details = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete(`http://localhost:5000/assignments/${_id}`)
+            .delete(`https://assignment-allies-server-site.vercel.app/assignments/${_id}`)
             .then((res) => {
               if (res?.data?.deletedCount > 0) {
                 Swal.fire(

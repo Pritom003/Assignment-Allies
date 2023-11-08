@@ -45,7 +45,7 @@ const AddAssignment = () => {
       return;
     }
 
-   axios.post('http://localhost:5000/assignments',mydata)
+   axios.post('https://assignment-allies-server-site.vercel.app/assignments',mydata)
    .then(res=>{
     console.log(res.data);
    
