@@ -5,7 +5,11 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 const AddAssignment = () => {
+  const [startDate, setStartDate] = useState(new Date());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -113,11 +117,15 @@ const AddAssignment = () => {
       </div>
       <div className="mb-4 sm:mb-0">
         <label className="block text-sm font-medium text-purple-700">date</label>
-        <input
-          type="date"
-          name="dueDate"
-          className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
-        />
+    
+
+
+<DatePicker name="dueDate" className="input w-full input-bordered" selected={startDate} 
+onChange={(dueDate) => setStartDate(dueDate)} /> 
+
+
+
+
       </div>
       <div className="mb-4 sm:mb-0">
         <label className="block text-sm font-medium text-purple-700">User Email</label>

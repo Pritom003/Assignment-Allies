@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Layouts/Navbar/Navbar';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+import DatePicker from "react-datepicker";
 const Updateassign = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
   const loaderdata=useLoaderData()
-  const { name, number, type, email, dueDate, description, photo,_id } = loaderdata;
+  const { name, number, type, email,dueDate,  description, photo,_id } = loaderdata;
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -97,12 +98,16 @@ const Updateassign = () => {
     </div>
     <div className="mb-4 sm:mb-0">
       <label className="block text-sm font-medium text-purple-700">date</label>
-      <input
+      {/* <input
         type="date"
         name="dueDate"
-        defaultValue={dueDate}
+      
         className="mt-1 p-2 rounded-lg border border-gray-300 focus:ring focus:ring-indigo-200 focus:outline-none w-full"
-      />
+      /> */}
+<DatePicker name="dueDate"    defaultValue={dueDate} className="input w-full input-bordered" selected={startDate} 
+onChange={(dueDate) => setStartDate(dueDate)} /> 
+
+
     </div>
     <div className="mb-4 sm:mb-0">
       <label className="block text-sm font-medium text-purple-700">User Email</label>

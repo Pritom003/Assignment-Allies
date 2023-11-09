@@ -99,11 +99,11 @@ const handlepermission=()=>{
             </div>
           </div>
           <div className='flex justify-between align-middle items-center m-10'>
-            <div className='flex gap-2 '>
+            <div className='md:flex gap-2 grid '>
              {
               user?.email===email ? <Link to={`/update/${_id}`}> <button  className="btn btn-primary"
                >update assignment </button></Link>:
-                <button  className="btn btn-primary" onClick={()=>handlepermission(_id)}>update assignment </button>
+                <button  className="btn w-4 btn-primary" onClick={()=>handlepermission(_id)}>update assignment </button>
              }
               <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
             </div>
